@@ -8,32 +8,37 @@
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
+  <!-- ===== Header（已将 Resume 改为 About） ===== -->
   <header class="site-header">
     <a class="brand" href="./index.html">YIYING HUANG</a>
     <nav class="nav">
       <a class="active" href="./index.html">Home</a>
       <a href="./projects.html">Projects</a>
-      <a href="./resume.html">Resume</a>
+      <a href="./about.html">About</a>
       <a href="./contact.html">Contact</a>
     </nav>
   </header>
 
+  <!-- ===== Main ===== -->
   <main class="container">
+    <!-- Hero（已替换为你的生活照；移除了 Download CV 按钮） -->
     <section class="hero">
-      <img class="avatar" src="https://avatars.githubusercontent.com/u/0?v=4" alt="Avatar" />
+      <img class="avatar" src="assets/photos/life-1.jpg" alt="Yiying Huang" />
       <div>
         <h1>Hi, I’m Yiying Huang</h1>
         <p class="lead">
-          Aspiring data analyst focusing on <strong>predictive modeling</strong>, <strong>causal inference</strong>, and <strong>business analytics</strong>.
+          Aspiring data analyst focusing on <strong>predictive modeling</strong>,
+          <strong>causal inference</strong>, and <strong>business analytics</strong>.
           I build end-to-end workflows in Python/R and communicate results with clarity.
         </p>
-        <div class="cta-row">
-          <a class="btn" href="./projects.html">View Projects</a>
-          <a class="btn outline" href="./resume.html">Download CV</a>
+        <div class="hero-actions">
+          <a class="btn primary" href="./projects.html">View Projects</a>
+          <!-- Download CV 已移除 -->
         </div>
       </div>
     </section>
 
+    <!-- Research Interests（保持原有结构） -->
     <section>
       <h2>Research Interests</h2>
       <ul class="tags">
@@ -45,6 +50,29 @@
       </ul>
     </section>
 
+    <!-- 新增 About Me（含 2–3 张生活照 + 简介） -->
+    <section class="about">
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>
+          Outside of data, I enjoy running, photography, and exploring coffee spots.
+          I value clear thinking, simple design, and measurable impact. Here are a few moments
+          from my life.
+        </p>
+        <ul class="about-bullets">
+          <li>🏃 Running 5–10K on weekends</li>
+          <li>📷 Street & travel photography</li>
+          <li>☕ Trying pour-over recipes</li>
+        </ul>
+      </div>
+      <div class="gallery">
+        <figure class="photo"><img src="assets/photos/life-1.jpg" alt="Life photo 1"></figure>
+        <figure class="photo"><img src="assets/photos/life-2.jpg" alt="Life photo 2"></figure>
+        <figure class="photo"><img src="assets/photos/life-3.jpg" alt="Life photo 3"></figure>
+      </div>
+    </section>
+
+    <!-- Highlights（保留你现有的三个项目卡片） -->
     <section>
       <h2>Highlights</h2>
       <div class="grid">
