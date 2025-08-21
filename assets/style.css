@@ -12,7 +12,7 @@
   --border:rgba(59,130,246,0.30);/* 边框：浅蓝灰 */
   --shadow:0 2px 8px rgba(0,0,0,0.05);
 
-  /* 辅助浅灰（用于与浅蓝交错） */
+  /* 辅助浅灰（与浅蓝交错） */
   --pill-gray:rgba(107,114,128,0.10);
   --pill-gray-strong:rgba(107,114,128,0.18);
 
@@ -142,8 +142,8 @@ h1{font-size:32px} h2{font-size:24px} h3{font-size:18px}
 }
 
 /* =========================
-   About Me（文字 + 相册）
-   放大相册，右侧更宽，图片采用 4:5 人像比例
+   About Me（左文字 + 右相册&兴趣）
+   放大相册，右侧更宽，图片采用 4:5 人像比例；兴趣清单紧贴相册下方
    ========================= */
 .about{
   display:grid;
@@ -155,6 +155,9 @@ h1{font-size:32px} h2{font-size:24px} h3{font-size:18px}
 .about-text{ max-width:62ch; }
 .about-bullets{margin:12px 0 0;padding-left:18px}
 .about-bullets li{margin:6px 0;color:var(--ink)}
+
+/* 右侧容器：相册 + 兴趣清单纵向排列 */
+.about-side{ display:flex; flex-direction:column; gap:16px; }
 
 /* 更大的相册网格：每张最小 180px，自动填满右侧 */
 .gallery{
@@ -182,6 +185,20 @@ h1{font-size:32px} h2{font-size:24px} h3{font-size:18px}
 }
 .gallery img:hover{transform:translateY(-1px);filter:brightness(1.02)}
 
+/* 兴趣清单：照片下面的小卡片 */
+.hobbies{
+  margin:0; padding:0; list-style:none;
+  display:flex; flex-direction:column; gap:8px;
+  font-size:15px; color:var(--ink);
+}
+.hobbies li{
+  display:flex; align-items:center; gap:8px;
+  padding:6px 10px; border:1px solid var(--border);
+  border-radius:10px; background:var(--card); box-shadow:var(--shadow);
+  width:fit-content; transition:background .2s,color .2s;
+}
+.hobbies li:hover{ background:var(--brand-weak); color:var(--brand); }
+
 /* =========================
    Footer
    ========================= */
@@ -202,5 +219,6 @@ h1{font-size:32px} h2{font-size:24px} h3{font-size:18px}
   .about{grid-template-columns:1fr}
   .about-text{ max-width:none; }
   .gallery{ grid-template-columns: repeat(3, 1fr); }
-  .gallery img{ aspect-ratio: 1 / 1; } /* 手机端改为方形缩略图，更协调 */
+  .gallery img{ aspect-ratio: 1 / 1; } /* 手机端方形缩略图，更协调 */
+  .hobbies{ flex-direction:row; flex-wrap:wrap; }
 }
