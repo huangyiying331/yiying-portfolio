@@ -47,10 +47,12 @@
         Transactions are converted into a binary basket matrix. Rare items are dropped using a <em>global item support</em>
         threshold (<code>MIN_ITEM_GLOBAL_SUPPORT = 0.005</code>) to reduce sparsity and speed up mining.
       </p>
+
       <figure class="card">
         <img src="assets/projects/top_items.png" alt="Top items by transaction count" style="width:100%;border-radius:12px" />
         <figcaption class="meta">Top items by transaction count</figcaption>
       </figure>
+
       <figure class="card">
         <img src="assets/projects/item_pair_heatmap.png" alt="Heatmap of item pair co-occurrence" style="width:100%;border-radius:12px" />
         <figcaption class="meta">Item-pair co-occurrence heatmap (top items)</figcaption>
@@ -62,13 +64,16 @@
       <h2>Frequent Itemsets &amp; Rules</h2>
       <p>
         Frequent itemsets are mined with Apriori (<code>min_support = 0.01</code>). Association rules are then generated
-        and filtered to keep <em>lift &gt; 1</em> and <em>confidence &ge; 0.30</em>, sorted by <em>lift → confidence → support</em>.
-        The scatter below shows support vs. confidence (bubble size proportional to lift).
+        and filtered to keep <em>lift &gt; 1</em> and <em>confidence &ge; 0.30</em>, sorted by
+        <em>lift → confidence → support</em>. The scatter below shows support vs. confidence
+        (bubble size proportional to lift), and the network reveals high-lift antecedent→consequent links.
       </p>
+
       <figure class="card">
-        <img src="assets/projects/rules_scatter.png" alt="Association rules scatter: support vs confidence, bubble size = lift" style="width:100%;border-radius:12px" />
+        <img src="assets/projects/rules_scatter.png" alt="Association rules scatter: support vs confidence (bubble size = lift)" style="width:100%;border-radius:12px" />
         <figcaption class="meta">Association rules (support vs. confidence; size = lift)</figcaption>
       </figure>
+
       <figure class="card">
         <img src="assets/projects/rules_network.png" alt="Network graph of top-lift association rules" style="width:100%;border-radius:12px" />
         <figcaption class="meta">High-lift rule network (top edges by lift)</figcaption>
@@ -95,13 +100,14 @@
       </ul>
     </section>
 
-    <!-- 6) Artifacts -->
+    <!-- 6) Artifacts & Reproducibility -->
     <section class="project" id="artifacts">
-      <h2>Artifacts</h2>
+      <h2>Artifacts &amp; Reproducibility</h2>
       <ul>
-        <li><code>frequent_itemsets.csv</code>, <code>association_rules.csv</code></li>
-        <li><code>top_items.png</code>, <code>item_pair_heatmap.png</code>, <code>rules_scatter.png</code>, <code>rules_network.png</code></li>
-        <li>Optional: <code>association_rules_period_day=*.csv</code>, <code>association_rules_weekday_weekend=*.csv</code></li>
+        <li>Tables: <code>frequent_itemsets.csv</code>, <code>association_rules.csv</code></li>
+        <li>Figures: <code>top_items.png</code>, <code>item_pair_heatmap.png</code>, <code>rules_scatter.png</code>, <code>rules_network.png</code></li>
+        <li>Optional segments: <code>association_rules_period_day=*.csv</code>, <code>association_rules_weekday_weekend=*.csv</code></li>
+        <li>Key params: <code>MIN_ITEM_GLOBAL_SUPPORT=0.005</code>, <code>MIN_SUPPORT=0.01</code>, <code>MIN_CONF=0.30</code></li>
       </ul>
       <!-- Optional download button if you place the script in your repo -->
       <!-- <p class="links"><a class="btn outline" href="assets/code/basket_rules.py" download>Download Script</a></p> -->
