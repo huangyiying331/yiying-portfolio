@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About | Yiying Huang</title>
   <link rel="stylesheet" href="assets/style.css" />
+  <meta name="description" content="About Yiying Huang — academic background, interests, skills, and coursework." />
 </head>
 <body>
+  <!-- ===== Header ===== -->
   <header class="site-header">
     <a class="brand" href="./index.html">YIYING HUANG</a>
     <nav class="nav">
@@ -17,43 +19,121 @@
     </nav>
   </header>
 
+  <!-- ===== Main ===== -->
   <main class="container">
+    <!-- 上半：介绍 + 生活侧栏（与首页不同，这里是更正式的学术/职业介绍） -->
     <section class="about about--page">
-      <!-- 左侧：文字 -->
+      <!-- 左：更正式的简介 -->
       <div class="about-text">
         <h1>About Me</h1>
         <p>
-          I’m <strong>Yiying Huang</strong>, an undergraduate studying <strong>Philosophy at UCL</strong>.
-          I’m especially interested in how philosophical ideas intersect with
-          <strong>marketing</strong>, <strong>psychology</strong>, and <strong>management</strong>—for example,
-          how ethics, decision-making, and theories of value shape brand strategy, consumer behavior,
-          and organizational culture.
+          I’m <strong>Yiying Huang</strong>, an undergraduate in <strong>Philosophy at UCL</strong>.
+          My work sits at the intersection of <strong>decision-making</strong>, <strong>behavioral science</strong>,
+          and <strong>data analysis</strong>. I like turning abstract ideas—ethics, rational choice,
+          theories of value—into <em>testable</em> questions for <strong>marketing</strong>, <strong>psychology</strong>,
+          and <strong>management</strong>.
         </p>
         <p>
-          This site is my <strong>portfolio</strong>. Here you’ll find selected projects and notes where I explore
-          these crossovers in a practical, approachable way. Thanks for stopping by—feel free to look around
-          and get to know my work.
+          On this page you’ll find a concise record of my <strong>education</strong>, <strong>skills</strong>,
+          and <strong>relevant coursework</strong>, plus the research themes I care about and where I hope to head next.
+          For hands-on work, see the <a href="./projects.html">Projects</a> page.
         </p>
       </div>
 
-      <!-- 右侧：相册 + 兴趣清单（同一列，兴趣紧贴照片下方） -->
+      <!-- 右：相册 + 兴趣 -->
       <div class="about-side">
         <div class="gallery">
           <figure class="photo"><img src="assets/photos/life-1.jpg" alt="Yiying Huang life photo 1"></figure>
           <figure class="photo"><img src="assets/photos/life-2.jpg" alt="Yiying Huang life photo 2"></figure>
           <figure class="photo"><img src="assets/photos/life-3.jpg" alt="Yiying Huang life photo 3"></figure>
         </div>
-
-        <!-- 兴趣清单：已扩充为 6 项 -->
         <ul class="hobbies">
           <li>🏃 Running 5–10K on weekends</li>
           <li>📷 Street &amp; travel photography</li>
-          <li>☕ Trying pour-over recipes</li>
-          <li>📚 Reading philosophy &amp; psychology books</li>
-          <li>🎶 Exploring indie &amp; jazz music</li>
-          <li>🌍 Traveling &amp; discovering new cultures</li>
+          <li>☕ Pour-over coffee experiments</li>
+          <li>📚 Philosophy &amp; psychology reading</li>
+          <li>🎶 Indie &amp; jazz</li>
+          <li>🌍 Travel &amp; cultural discovery</li>
         </ul>
       </div>
+    </section>
+
+    <!-- 教育 -->
+    <section class="section">
+      <h2>Education</h2>
+      <ul>
+        <li>
+          <strong>University College London (UCL)</strong> — B.A. Philosophy (Undergraduate)
+          <br><span class="muted small">Focus: reasoning, ethics, decision theory, philosophy of mind</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 技能矩阵 -->
+    <section class="section">
+      <h2>Skills &amp; Tools</h2>
+      <div class="grid">
+        <article class="card">
+          <h3 class="mt-0">Programming</h3>
+          <p class="meta">Python (pandas, numpy, scikit-learn, statsmodels, matplotlib); R (tidyverse, ggplot2)</p>
+        </article>
+        <article class="card">
+          <h3 class="mt-0">Modeling &amp; Methods</h3>
+          <p class="meta">Supervised learning, time series (ARIMA/ML hybrids), clustering, A/B testing, DiD, regression</p>
+        </article>
+        <article class="card">
+          <h3 class="mt-0">Analytics</h3>
+          <p class="meta">EDA, feature engineering, leakage checks, cross-validation design, explainability (SHAP)</p>
+        </article>
+        <article class="card">
+          <h3 class="mt-0">Visualization</h3>
+          <p class="meta">Matplotlib, ggplot2; clear narrative charts and dashboards</p>
+        </article>
+        <article class="card">
+          <h3 class="mt-0">Domains</h3>
+          <p class="meta">Marketing analytics, consumer behavior, organizational studies, social insights</p>
+        </article>
+        <article class="card">
+          <h3 class="mt-0">Communication</h3>
+          <p class="meta">Technical writing, literature reviews, research synthesis</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 相关课程（突出与数据/管理相关） -->
+    <section class="section">
+      <h2>Relevant Coursework</h2>
+      <ul>
+        <li><strong>Decision Theory</strong> — utility, risk, Bayesian reasoning</li>
+        <li><strong>Logic &amp; Critical Thinking</strong> — argument analysis, formal proofs</li>
+        <li><strong>Ethics</strong> — normative frameworks for responsible decision-making</li>
+        <li><strong>Intro to Statistics &amp; Data Analysis</strong> — inference, regression, experimentation</li>
+        <li><strong>Behavioral Science</strong> — judgment &amp; decision biases; applications to marketing</li>
+        <li><strong>Management &amp; Organizations</strong> — incentives, culture, and strategy basics</li>
+      </ul>
+    </section>
+
+    <!-- 研究兴趣（细化） -->
+    <section class="section">
+      <h2>Research Interests</h2>
+      <ul>
+        <li>How reasoning norms and ethical values influence <strong>consumer behavior</strong> and <strong>brand trust</strong>.</li>
+        <li>Bridging <strong>behavioral biases</strong> with <strong>causal inference</strong> to evaluate interventions.</li>
+        <li>Turning qualitative concepts into <strong>measurable features</strong> for predictive/diagnostic models.</li>
+        <li>Human-interpretable analytics: clear EDA → explainable models → decision support.</li>
+      </ul>
+    </section>
+
+    <!-- 目标 / 下一步 -->
+    <section class="section">
+      <h2>Goals</h2>
+      <p>
+        Short term, I’m building a strong toolkit in statistics, causal methods, and ML for marketing/organizational problems.
+        Long term, I hope to contribute to evidence-based decision-making—where philosophical clarity meets real-world data.
+      </p>
+      <p class="muted small">
+        Curious about methods I’m exploring now? Check the <a href="./projects.html">Projects</a> page for fresh work.
+      </p>
     </section>
   </main>
 </body>
