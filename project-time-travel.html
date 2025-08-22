@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Time-Aware EDA & Leakage Detection – Yiying Huang</title>
+  <meta name="description" content="Leakage audit, temporal cross-validation, and past-only feature engineering for realistic model evaluation." />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">YIYING HUANG</a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a class="active" href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <p class="small"><a class="text-link" href="projects.html">← Back to Projects</a></p>
+    <h1>Time-Aware EDA & Leakage Detection</h1>
+    <p class="muted small">Event-time classification case study</p>
+
+    <p>
+      This project demonstrates how to detect and prevent “time-travel” (target) leakage in event-time data.
+      The pipeline includes a systematic leakage audit, purged temporal cross-validation, past-only feature engineering,
+      and fair benchmarking to obtain trustworthy out-of-sample estimates.
+    </p>
+
+    <!-- 1) Problem & Data -->
+    <section class="project" id="overview">
+      <h2>Problem & Data</h2>
+      <p>
+        We work with time-stamped user events and labels. A naive random split overestimates performance because records from the
+        same user/time neighborhood can leak future information into training. The goal is to build an evaluation protocol that
+        mimics real-time deployment.
+      </p>
+      <!-- Optional figure -->
+      <!--
+      <figure class="card">
+        <img src="assets/projects/time-data-overview.jpg" alt="Event-time data overview" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Event-time data and leakage risks</figcaption>
+      </figure>
+      -->
+    </section>
+
+    <!-- 2) Leakage Audit -->
+    <section class="project" id="leakage">
+      <h2>Leakage Audit</h2>
+      <ul>
+        <li><strong>Temporal leakage:</strong> features computed with future windows or labels aligned after the event.</li>
+        <li><strong>Group leakage:</strong> the same user/session appearing in both train and test due to random split.</li>
+        <li><strong>Duplicate/near-duplicate leakage:</strong> identical hashes spread across folds.</li>
+      </ul>
+      <!-- Optional figures -->
+      <!--
+      <figure class="card">
+        <img src="assets/projects/time-leak-checks.png" alt="Leakage checks" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Systematic checks for temporal / group / duplicate leakage</figcaption>
+      </figure>
+      -->
+    </section>
+
+    <!-- 3) Temporal CV Design -->
+    <section class="project" id="cv">
+      <h2>Temporal Cross-Validation</h2>
+      <p>
+        We replace random K-Fold with a <strong>rolling forward split</strong> and a <strong>purged, embargoed GroupKFold</strong>
+        (grouped by user/session). Purging removes samples within an embargo window around fold boundaries to avoid look-ahead bias.
+      </p>
+      <!-- Optional figure -->
+      <!--
+      <figure class="card">
+        <img src="assets/projects/temporal-cv-scheme.png" alt="Temporal CV schematic" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Rolling origin with group-aware purging & embargo</figcaption>
+      </figure>
+      -->
+    </section>
+
+    <!-- 4) Past-Only Feature Engineering -->
+    <section class="project" id="features">
+      <h2>Past-Only Feature Engineering</h2>
+      <p>
+        Features are rebuilt using only information available up to the event time: lagged aggregates, rolling windows, and count/
+        frequency encodings per user or entity. Any post-event fields are dropped or shifted.
+      </p>
+      <!-- Optional figure -->
+      <!--
+      <figure class="card">
+        <img src="assets/projects/past-only-features.png" alt="Past-only features" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Lagged & rolling statistics computed strictly from the past</figcaption>
+      </figure>
+      -->
+    </section>
+
+    <!-- 5) Benchmarks & Results -->
+    <section class="project" id="results">
+      <h2>Benchmarks & Results</h2>
+      <ul>
+        <li><strong>Naive random split:</strong> optimistic metrics due to leakage.</li>
+        <li><strong>Temporal CV (purged):</strong> lower but realistic CV; hold-out aligns with CV, indicating reliable generalization.</li>
+      </ul>
+      <!-- Optional figure -->
+      <!--
+      <figure class="card">
+        <img src="assets/projects/random-vs-temporal-metrics.png" alt="Random vs temporal split metrics" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Performance drops to realistic levels under temporal CV</figcaption>
+      </figure>
+      -->
+    </section>
+
+    <!-- 6) Lessons Learned -->
+    <section class="project" id="takeaways">
+      <h2>Lessons Learned</h2>
+      <ul>
+        <li>Always audit for time-travel leakage before modeling; enforce past-only features.</li>
+        <li>Use temporal, group-aware CV with purging/embargo for event-time problems.</li>
+        <li>Report both CV and true hold-out aligned in time; avoid random splits.</li>
+      </ul>
+    </section>
+
+    <p class="meta" style="margin-top:12px">
+      Tech Stack: Python · pandas · numpy · scikit-learn
+    </p>
+
+    <p class="small"><a class="text-link" href="projects.html">← Back to Projects</a></p>
+  </main>
+
+  <footer class="site-footer">
+    © <span id="year"></span> Yiying Huang · <a href="https://github.com/huangyiying331">GitHub</a>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
