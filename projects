@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projects | Data Analytics Portfolio</title>
-  <meta name="description" content="Data analytics projects by Yiying Huang" />
+  <title>Projects - Yiying Huang</title>
+  <meta name="description" content="Data analytics projects by Yiying Huang." />
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
-  <!-- Header（沿用你的导航） -->
+  <!-- ===== Header ===== -->
   <header class="site-header">
     <a class="brand" href="./index.html">YIYING HUANG</a>
     <nav class="nav">
@@ -19,184 +19,85 @@
     </nav>
   </header>
 
+  <!-- ===== Main ===== -->
   <main class="container">
-    <!-- Intro -->
-    <section class="page-intro">
-      <h1>Projects</h1>
-      <p>Selected data analytics projects. Each card shows a short summary, the tech stack I used, an expandable core code snippet, and a few charts.</p>
+    <h1>Projects</h1>
+
+    <!-- =========================
+         股票时间序列预测（工商银行 1398.HK）
+         与首页 Highlights 的 “Sales Forecasting” 对应锚点：#ts
+         ========================= -->
+    <section id="ts" class="project">
+      <h2>股票时间序列预测（2018–2024，周度）</h2>
+      <p class="muted small">Case: ICBC (1398.HK), Weekly Data · 2018–2024</p>
+
+      <p>
+        本研究基于工商银行（1398.HK）2018–2024 年的周度数据，系统构建并比较多种统计与机器学习模型，
+        旨在评估不同建模策略在股票走势结构分析与短期价格预测中的适用性、表现差异及互补潜力。
+      </p>
+
+      <div class="grid">
+        <article class="card">
+          <h3>方法概览</h3>
+          <ul>
+            <li><strong>标准化处理：</strong>对原始价格序列做对数收益率转换，缓解非平稳性干扰。</li>
+            <li><strong>滚动窗口聚类：</strong>K-Means 对局部市场状态进行分段识别，刻画动态演变与结构切换。</li>
+            <li><strong>逻辑回归（方向判别）：</strong>评估历史价格特征与未来涨跌之间的统计关联。</li>
+            <li><strong>隐马尔可夫模型（HMM）：</strong>通过隐状态的转移概率与观测分布，间接建模市场情绪与状态切换。</li>
+            <li><strong>技术指标组合：</strong>RSI、5/20 均线交叉、布林带宽度（波动率）等，用于构建条件信号与状态标注。</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>主要发现</h3>
+          <ul>
+            <li>滚动聚类能有效识别<strong>价格行为的结构性变异</strong>与阶段特征。</li>
+            <li>HMM 在<strong>市场状态划分</strong>与<strong>短期涨跌趋势辨识</strong>方面具备较高解释力。</li>
+            <li>基于技术指标的策略揭示出若干具有<strong>统计优势</strong>的买入信号组合。</li>
+            <li>各模型在<strong>趋势拐点识别</strong>、<strong>波动结构捕捉</strong>与<strong>交易信号构建</strong>上呈现差异性与互补性。</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>局限与实践启示</h3>
+          <ul>
+            <li>有限样本下模型稳定性受限；特征选择对预测效果较敏感。</li>
+            <li>技术指标存在滞后性与过拟合风险，需结合稳健验证与简化假设。</li>
+            <li>建议强调模型解释力与透明度，采用<strong>统计学习 × 领域知识</strong>的混合策略以提升实用价值。</li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- 可选：插入一张示意图（命名后替换路径即可） -->
+      <!--
+      <figure class="card" style="margin-top:16px">
+        <img src="assets/projects/icbc-hmm-states.png" alt="HMM inferred market states (weekly)" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">示意：基于周度收益率的 HMM 隐状态分段</figcaption>
+      </figure>
+      -->
+
+      <p class="meta" style="margin-top:12px">
+        Tech Stack: Python · pandas · numpy · scikit-learn (K-Means, Logistic Regression) · hmmlearn · statsmodels · matplotlib
+      </p>
+
+      <!-- 可选外部链接（不会注明来源平台，文案保持中性） -->
+      <!--
+      <p class="links">
+        <a class="btn outline" href="https://example.com/your-project-link" target="_blank" rel="noopener">View Project</a>
+        <a class="btn outline" href="https://example.com/your-report.pdf" target="_blank" rel="noopener">Read Report (PDF)</a>
+      </p>
+      -->
     </section>
 
-    <!-- Project list -->
-    <section class="grid projects-grid">
+    <!-- 在此下方继续添加更多项目 section.project ... -->
 
-      <!-- Project 1 -->
-      <article class="project-card">
-        <div class="project-head">
-          <h2>Customer Churn Prediction</h2>
-          <p class="muted">Binary classification · Telco dataset</p>
-        </div>
-
-        <p class="project-blurb">
-          Built a churn model to identify high-risk customers and key drivers. Tuned XGBoost and interpreted with SHAP; improved recall @ fixed precision by 18%.
-        </p>
-
-        <ul class="tech-tags">
-          <li>Python</li><li>pandas</li><li>scikit-learn</li><li>XGBoost</li><li>SHAP</li>
-        </ul>
-
-        <div class="actions">
-          <a class="btn" href="https://github.com/yourname/churn" target="_blank" rel="noopener">GitHub Repo</a>
-          <a class="btn ghost" href="#" target="_blank" rel="noopener">Short Report (PDF)</a>
-        </div>
-
-        <details class="code-block">
-          <summary>Core Code (feature prep + model + SHAP)</summary>
-<pre><code class="language-py">import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import precision_recall_curve
-from xgboost import XGBClassifier
-import shap
-
-X = df.drop(columns=["churn"])
-y = df["churn"].astype(int)
-
-X = pd.get_dummies(X, drop_first=True)
-
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, stratify=y, random_state=42)
-
-clf = XGBClassifier(
-    n_estimators=400, max_depth=4, learning_rate=0.06,
-    subsample=0.9, colsample_bytree=0.9, reg_lambda=1.0, random_state=42
-)
-clf.fit(X_train, y_train)
-
-explainer = shap.TreeExplainer(clf)
-shap_values = explainer(X_test)
-# shap.plots.beeswarm(shap_values)  # figure saved below
-</code></pre>
-          <button class="copy-btn" data-target="prev">Copy</button>
-        </details>
-
-        <div class="figs">
-          <!-- 把你的图放到 assets/projects/churn/ 目录 -->
-          <figure>
-            <img src="assets/projects/churn/roc.png" alt="ROC curve" />
-            <figcaption>ROC curve</figcaption>
-          </figure>
-          <figure>
-            <img src="assets/projects/churn/shap_beeswarm.png" alt="SHAP beeswarm" />
-            <figcaption>Top drivers (SHAP)</figcaption>
-          </figure>
-        </div>
-      </article>
-
-      <!-- Project 2 -->
-      <article class="project-card">
-        <div class="project-head">
-          <h2>Pricing Elasticity via Difference-in-Differences</h2>
-          <p class="muted">Causal inference · Event-study checks</p>
-        </div>
-
-        <p class="project-blurb">
-          Estimated the causal effect of discounting on sales. Ran DiD with robust SEs and placebo tests; validated parallel trends with event-study.
-        </p>
-
-        <ul class="tech-tags">
-          <li>R</li><li>tidyverse</li><li>fixest</li><li>did</li>
-        </ul>
-
-        <div class="actions">
-          <a class="btn" href="https://github.com/yourname/diff-in-diff" target="_blank" rel="noopener">GitHub Repo</a>
-          <a class="btn ghost" href="#" target="_blank" rel="noopener">Notebook</a>
-        </div>
-
-        <details class="code-block">
-          <summary>Core Code (DiD w/ fixed effects)</summary>
-<pre><code class="language-r">library(fixest)
-# y = log(sales), treat = discounted, post = after promo
-did_model &lt;- feols(y ~ i(post, treat, ref = 0) | store + week, data = df, cluster = "store")
-etable(did_model)
-</code></pre>
-          <button class="copy-btn" data-target="prev">Copy</button>
-        </details>
-
-        <div class="figs">
-          <figure>
-            <img src="assets/projects/did/event_study.png" alt="Event study plot" />
-            <figcaption>Event-study (parallel trends check)</figcaption>
-          </figure>
-          <figure>
-            <img src="assets/projects/did/placebo.png" alt="Placebo test" />
-            <figcaption>Placebo test</figcaption>
-          </figure>
-        </div>
-      </article>
-
-      <!-- Project 3 -->
-      <article class="project-card">
-        <div class="project-head">
-          <h2>Sales Forecasting</h2>
-          <p class="muted">Hybrid ARIMA + Gradient Boosting</p>
-        </div>
-
-        <p class="project-blurb">
-          Combined classical time-series with ML to reduce MAPE by 12% vs. seasonal benchmark; included holiday & promo features.
-        </p>
-
-        <ul class="tech-tags">
-          <li>Python</li><li>pandas</li><li>statsmodels</li><li>LightGBM</li>
-        </ul>
-
-        <div class="actions">
-          <a class="btn" href="https://github.com/yourname/forecasting" target="_blank" rel="noopener">GitHub Repo</a>
-          <a class="btn ghost" href="#" target="_blank" rel="noopener">Report</a>
-        </div>
-
-        <details class="code-block">
-          <summary>Core Code (hybrid pipeline)</summary>
-<pre><code class="language-py">from statsmodels.tsa.statespace.sarimax import SARIMAX
-import lightgbm as lgb
-
-# 1) SARIMA residuals
-sarima = SARIMAX(y, order=(1,1,1), seasonal_order=(1,1,1,7)).fit()
-resid = y - sarima.fittedvalues
-
-# 2) ML on features to explain residuals
-dtrain = lgb.Dataset(X_train, label=resid.loc[X_train.index])
-gbm = lgb.train({"objective":"regression"}, dtrain, num_boost_round=400)
-
-# 3) Final forecast = sarima_forecast + ml_correction
-</code></pre>
-          <button class="copy-btn" data-target="prev">Copy</button>
-        </details>
-
-        <div class="figs">
-          <figure>
-            <img src="assets/projects/forecast/actual_vs_pred.png" alt="Actual vs Predicted" />
-            <figcaption>Actual vs. Predicted</figcaption>
-          </figure>
-        </div>
-      </article>
-
-    </section>
   </main>
 
+  <footer class="site-footer">
+    © <span id="year"></span> Yiying Huang · <a href="https://github.com/huangyiying331">GitHub</a>
+  </footer>
   <script>
-    // 简易“复制代码”按钮
-    document.querySelectorAll('.copy-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const target = btn.dataset.target === 'prev'
-          ? btn.previousElementSibling
-          : document.querySelector(btn.dataset.target);
-        const text = target ? target.innerText : '';
-        navigator.clipboard.writeText(text).then(() => {
-          const old = btn.textContent;
-          btn.textContent = 'Copied!';
-          setTimeout(() => btn.textContent = old, 1200);
-        });
-      });
-    });
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
