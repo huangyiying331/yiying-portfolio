@@ -10,12 +10,12 @@
 <body>
   <!-- ===== Header ===== -->
   <header class="site-header">
-    <a class="brand" href="./index.html">YIYING HUANG</a>
+    <a class="brand" href="index.html">YIYING HUANG</a>
     <nav class="nav">
-      <a href="./index.html">Home</a>
-      <a class="active" href="./projects.html">Projects</a>
-      <a href="./about.html">About</a>
-      <a href="./contact.html">Contact</a>
+      <a href="index.html">Home</a>
+      <a class="active" href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
@@ -23,88 +23,35 @@
   <main class="container">
     <h1>Projects</h1>
 
-    <!-- =========================
-         股票时间序列预测（工商银行 1398.HK）
-         与首页 Highlights 的 “Sales Forecasting” 对应锚点：#ts
-         ========================= -->
-    <section id="ts" class="project">
-  <h2>Stock Time Series Forecasting (2018–2024, Weekly)</h2>
-  <p class="muted small">Case: ICBC (1398.HK), Weekly Data · 2018–2024</p>
+    <div class="grid">
+      <!-- Project Card 1 -->
+      <article class="card">
+        <h2 class="mt-0">Stock Time Series Forecasting</h2>
+        <p class="muted small">ICBC (1398.HK), Weekly · 2018–2024</p>
+        <p>
+          Comparing statistical and ML approaches for short-term forecasting and structural analysis:
+          log-return normalization, rolling K-Means regimes, HMM state inference, logistic direction modeling,
+          and indicator-conditioned signal probabilities.
+        </p>
+        <p class="meta">Python · pandas · numpy · scikit-learn · hmmlearn · statsmodels · matplotlib</p>
+        <p class="links">
+          <a class="btn outline" href="project-stock.html">Read more</a>
+        </p>
+      </article>
 
-  <p>
-    This study analyzes weekly stock data of ICBC (1398.HK) from 2018 to 2024, comparing multiple statistical and machine learning models to examine their suitability, differences, and complementarity in short-term forecasting and structural analysis of stock price dynamics.
-  </p>
-
-  <!-- ===== Data & Preprocessing ===== -->
-  <article class="card">
-    <h3>Data & Preprocessing</h3>
-    <p>
-      The raw price series was transformed into log returns to reduce non-stationarity and improve modeling accuracy. 
-    </p>
-    <figure>
-      <img src="assets/projects/ICBC Weekly Closing Price (2018–2024).jpg" alt="ICBC weekly closing price" style="width:100%;border-radius:12px" />
-      <figcaption class="meta">Weekly closing price of ICBC (2018–2024)</figcaption>
-    </figure>
-
-    <figure>
-      <img src="assets/projects/ICBC Weekly Log Returns.jpg" alt="ICBC weekly log returns" style="width:100%;border-radius:12px" />
-      <figcaption class="meta">Log returns of weekly ICBC prices</figcaption>
-    </figure>
-  </article>
-
-  <!-- ===== Structural Analysis ===== -->
-  <article class="card">
-    <h3>Structural Analysis</h3>
-    <p>
-      Market regimes were explored through clustering and hidden state modeling. Rolling-window K-Means captured local structural shifts, while Hidden Markov Models (HMM) inferred latent market states. The temporal distribution of states revealed transitions in market dynamics. 
-    </p>
-    <figure>
-      <img src="assets/projects/K-Means Clustering of Rolling Stats.jpg" alt="K-Means clustering of rolling stats" style="width:100%;border-radius:12px" />
-      <figcaption class="meta">K-Means clustering of rolling statistics</figcaption>
-    </figure>
-
-    <figure>
-      <img src="assets/projects/HMM State Identification.jpg" alt="HMM state identification" style="width:100%;border-radius:12px" />
-      <figcaption class="meta">Hidden Markov Model state identification</figcaption>
-    </figure>
-
-    <figure>
-      <img src="assets/projects/Temporal Market State Distribution.jpg" alt="Temporal distribution of market states" style="width:100%;border-radius:12px" />
-      <figcaption class="meta">Temporal distribution of inferred market states</figcaption>
-    </figure>
-  </article>
-
-  <!-- ===== Predictive Modeling ===== -->
-  <article class="card">
-    <h3>Predictive Modeling</h3>
-    <p>
-      Logistic regression was employed to evaluate the statistical relationship between historical features and the future price direction. Results showed explanatory power in capturing directional tendencies. 
-    </p>
-    <figure>
-      <img src="assets/projects/Logistic Model Actual vs Predicted Direction.jpg" alt="Logistic regression prediction accuracy" style="width:100%;border-radius:12px" />
-      <figcaption class="meta">Logistic regression: actual vs. predicted direction</figcaption>
-    </figure>
-  </article>
-
-  <!-- ===== Technical Indicators & Strategy ===== -->
-  <article class="card">
-    <h3>Technical Indicators & Strategy</h3>
-    <p>
-      A composite strategy was built using RSI, moving-average crossovers, and Bollinger Band width. By conditioning on technical signals, next-week return probabilities were estimated to identify statistically advantageous buy zones.
-    </p>
-    <figure>
-      <img src="assets/projects/Next-Week Return Probability by Technical Signal Combo.jpg" alt="Return probability by technical signal combo" style="width:100%;border-radius:12px" />
-      <figcaption class="meta">Next-week return probability by technical signal combinations</figcaption>
-    </figure>
-  </article>
-
-  <p class="meta" style="margin-top:12px">
-    Tech Stack: Python · pandas · numpy · scikit-learn (K-Means, Logistic Regression) · hmmlearn · statsmodels · matplotlib
-  </p>
-</section>
-
-    <!-- 在此下方继续添加更多项目 section.project ... -->
-
+      <!-- 在这里继续添加更多项目卡片 -->
+      <!--
+      <article class="card">
+        <h2>Project Title</h2>
+        <p class="muted small">Short context</p>
+        <p>One-sentence summary of what you did and why it matters.</p>
+        <p class="meta">Tech stack here</p>
+        <p class="links">
+          <a class="btn outline" href="project-xxx.html">Read more</a>
+        </p>
+      </article>
+      -->
+    </div>
   </main>
 
   <footer class="site-footer">
