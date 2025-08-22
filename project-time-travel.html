@@ -34,7 +34,7 @@
       <h2>Problem & Data</h2>
       <p>
         We work with time-stamped user events and labels. A naive random split overestimates performance because records from the
-        same user/time neighborhood can leak future information into training. The goal is to build an evaluation protocol that
+        same user/time neighborhood can leak future information into training. The goal is an evaluation protocol that
         mimics real-time deployment.
       </p>
 
@@ -56,7 +56,7 @@
     <section class="project" id="leakage">
       <h2>Leakage Audit</h2>
       <p>
-        We audit leakage by comparing temporal distributions between train and test, and by checking how class probabilities vary over time.
+        We compare temporal distributions between train and test and inspect class probability drift over time.
         Mismatches or sharp drifts signal potential target leakage or improper splits.
       </p>
 
@@ -77,7 +77,7 @@
 
       <figure class="card">
         <img src="assets/projects/date_x class prob &amp; frequency.png" alt="Class probability and frequency over date_x" style="width:100%;border-radius:12px" />
-        <figcaption class="meta">Class probability & frequency over <code>date_x</code> (checking time-varying target)</figcaption>
+        <figcaption class="meta">Class probability &amp; frequency over <code>date_x</code> (time-varying target check)</figcaption>
       </figure>
     </section>
 
@@ -85,27 +85,44 @@
     <section class="project" id="cv">
       <h2>Temporal Cross-Validation</h2>
       <p>
-        We replace random K-Fold with a <strong>rolling forward split</strong> and a <strong>purged, embargoed GroupKFold</strong>
+        We replace random K-Fold with a <strong>rolling-origin split</strong> and a <strong>purged, embargoed GroupKFold</strong>
         (grouped by user/session). Purging removes samples within an embargo window around fold boundaries to avoid look-ahead bias.
+        This aligns CV with real deployment where only the past is available at decision time.
       </p>
+
+      <figure class="card">
+        <img src="assets/projects/temporal_cv.png" alt="Temporal cross-validation scheme: rolling origin with purged, embargoed GroupKFold" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Temporal CV scheme: rolling origin + group-aware purging/embargo</figcaption>
+      </figure>
     </section>
 
     <!-- 4) Past-Only Feature Engineering -->
     <section class="project" id="features">
       <h2>Past-Only Feature Engineering</h2>
       <p>
-        Features are rebuilt using only information available up to the event time: lagged aggregates, rolling windows, and count/
-        frequency encodings per user or entity. Any post-event fields are dropped or shifted.
+        Features are rebuilt using only information available up to the event time: lagged aggregates, rolling windows, and
+        count/frequency encodings per user or entity. Any post-event fields are dropped or shifted so that training and inference
+        share the same information set.
       </p>
+
+      <figure class="card">
+        <img src="assets/projects/past_only_features.png" alt="Past-only feature construction with lagged and rolling statistics" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Past-only feature construction (lagged & rolling statistics)</figcaption>
+      </figure>
     </section>
 
     <!-- 5) Benchmarks & Results -->
     <section class="project" id="results">
-      <h2>Benchmarks & Results</h2>
+      <h2>Benchmarks &amp; Results</h2>
       <ul>
         <li><strong>Naive random split:</strong> optimistic metrics due to leakage.</li>
         <li><strong>Temporal CV (purged):</strong> lower but realistic CV; hold-out aligns with CV, indicating reliable generalization.</li>
       </ul>
+
+      <figure class="card">
+        <img src="assets/projects/benchmarks_results.png" alt="Benchmark results comparing random split vs temporal CV and hold-out" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Random split vs. temporal CV & hold-out: realistic performance after leakage control</figcaption>
+      </figure>
     </section>
 
     <!-- 6) Lessons Learned -->
@@ -114,8 +131,13 @@
       <ul>
         <li>Always audit for time-travel leakage before modeling; enforce past-only features.</li>
         <li>Use temporal, group-aware CV with purging/embargo for event-time problems.</li>
-        <li>Report both CV and true hold-out aligned in time; avoid random splits.</li>
+        <li>Report both CV and time-aligned hold-out; avoid random splits.</li>
       </ul>
+
+      <figure class="card">
+        <img src="assets/projects/lessons_learned.png" alt="Key practices and lessons learned" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Key practices to make time-aware modeling trustworthy</figcaption>
+      </figure>
     </section>
 
     <p class="meta" style="margin-top:12px">
