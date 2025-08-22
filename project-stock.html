@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stock Time Series Forecasting – Yiying Huang</title>
+  <meta name="description" content="ICBC (1398.HK) weekly forecasting project." />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <a class="brand" href="index.html">YIYING HUANG</a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a class="active" href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ===== Main ===== -->
+  <main class="container">
+    <p class="small"><a class="text-link" href="projects.html">← Back to Projects</a></p>
+    <h1>Stock Time Series Forecasting (2018–2024, Weekly)</h1>
+    <p class="muted small">Case: ICBC (1398.HK), Weekly Data · 2018–2024</p>
+
+    <p>
+      This study analyzes weekly stock data of ICBC (1398.HK) from 2018 to 2024, comparing multiple statistical and
+      machine learning models to examine their suitability, differences, and complementarity in short-term forecasting
+      and structural analysis of stock price dynamics.
+    </p>
+
+    <!-- ===== Data & Preprocessing ===== -->
+    <section class="project" id="data">
+      <h2>Data & Preprocessing</h2>
+      <p>
+        The raw price series was transformed into log returns to reduce non-stationarity and improve modeling accuracy.
+      </p>
+      <figure class="card">
+        <img src="assets/projects/ICBC Weekly Closing Price (2018–2024).jpg" alt="ICBC weekly closing price" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Weekly closing price of ICBC (2018–2024)</figcaption>
+      </figure>
+      <figure class="card">
+        <img src="assets/projects/ICBC Weekly Log Returns.jpg" alt="ICBC weekly log returns" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Log returns of weekly ICBC prices</figcaption>
+      </figure>
+    </section>
+
+    <!-- ===== Structural Analysis ===== -->
+    <section class="project" id="structure">
+      <h2>Structural Analysis</h2>
+      <p>
+        Market regimes were explored through clustering and hidden state modeling. Rolling-window K-Means captured local
+        structural shifts, while Hidden Markov Models (HMM) inferred latent market states. The temporal distribution of
+        states revealed transitions in market dynamics.
+      </p>
+      <figure class="card">
+        <img src="assets/projects/K-Means Clustering of Rolling Stats.jpg" alt="K-Means clustering of rolling stats" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">K-Means clustering of rolling statistics</figcaption>
+      </figure>
+      <figure class="card">
+        <img src="assets/projects/HMM State Identification.jpg" alt="HMM state identification" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Hidden Markov Model state identification</figcaption>
+      </figure>
+      <figure class="card">
+        <img src="assets/projects/Temporal Market State Distribution.jpg" alt="Temporal distribution of market states" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Temporal distribution of inferred market states</figcaption>
+      </figure>
+    </section>
+
+    <!-- ===== Predictive Modeling ===== -->
+    <section class="project" id="modeling">
+      <h2>Predictive Modeling</h2>
+      <p>
+        Logistic regression was employed to evaluate the statistical relationship between historical features and the
+        future price direction. Results showed explanatory power in capturing directional tendencies.
+      </p>
+      <figure class="card">
+        <img src="assets/projects/Logistic Model Actual vs Predicted Direction.jpg" alt="Logistic regression prediction accuracy" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Logistic regression: actual vs. predicted direction</figcaption>
+      </figure>
+    </section>
+
+    <!-- ===== Technical Indicators & Strategy ===== -->
+    <section class="project" id="strategy">
+      <h2>Technical Indicators & Strategy</h2>
+      <p>
+        A composite strategy was built using RSI, moving-average crossovers, and Bollinger Band width. By conditioning
+        on technical signals, next-week return probabilities were estimated to identify statistically
+        advantageous buy zones.
+      </p>
+      <figure class="card">
+        <img src="assets/projects/Next-Week Return Probability by Technical Signal Combo.jpg" alt="Return probability by technical signal combo" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Next-week return probability by technical signal combinations</figcaption>
+      </figure>
+    </section>
+
+    <p class="meta" style="margin-top:12px">
+      Tech Stack: Python · pandas · numpy · scikit-learn (K-Means, Logistic Regression) · hmmlearn · statsmodels · matplotlib
+    </p>
+
+    <p class="small"><a class="text-link" href="projects.html">← Back to Projects</a></p>
+  </main>
+
+  <footer class="site-footer">
+    © <span id="year"></span> Yiying Huang · <a href="https://github.com/huangyiying331">GitHub</a>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
