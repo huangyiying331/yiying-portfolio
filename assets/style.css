@@ -1,21 +1,16 @@
-/* =========================
-   Light Blue × Light Gray Theme (refined)
-   ========================= */
+/* ===== Elegant Purple Theme ===== */
 :root{
-  --bg:#f9fafb;                 
-  --ink:#1f2937;                
-  --muted:#6b7280;              
-  --brand:#3b82f6;              
-  --brand-weak:rgba(59,130,246,0.10);
-  --brand-weak-2:rgba(59,130,246,0.18);
-  --card:rgba(255,255,255,0.80);/* 稍高一些的不透明度，提升可读性 */
-  --border:rgba(59,130,246,0.28);
-  --shadow:0 2px 8px rgba(0,0,0,0.05);
-
-  --pill-gray:rgba(107,114,128,0.10);
-  --pill-gray-strong:rgba(107,114,128,0.18);
-
-  --ring:0 0 0 3px rgba(59,130,246,0.18);
+  /* 主色系 */
+  --bg:#1e1b4b;              /* 深紫背景 */
+  --ink:#f5f3ff;             /* 偏白正文 */
+  --muted:#c7d2fe;           /* 次级文字（Indigo 200） */
+  --brand:#a78bfa;           /* 品牌主紫 */
+  --brand-weak:rgba(167,139,250,0.12);
+  --brand-weak-2:rgba(167,139,250,0.22);
+  --card:#2a245e;            /* 卡片底色（稍亮于背景） */
+  --border:rgba(167,139,250,0.35);
+  --shadow:0 4px 16px rgba(0,0,0,0.25);
+  --ring:0 0 0 3px rgba(167,139,250,0.35);
 
   /* 排版系统 */
   --font-size:16px;
