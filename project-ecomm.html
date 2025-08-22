@@ -38,14 +38,7 @@
         The raw dataset was cleaned, encoded, and standardized to form a tidy analysis table with no missing values. This ensures
         model stability and comparability across features of different scales.
       </p>
-
-      <!-- Optional figure(s). Replace with your actual file names under assets/projects/ -->
-      <!--
-      <figure class="card">
-        <img src="assets/projects/ecomm-data-overview.png" alt="Data overview" style="width:100%;border-radius:12px" />
-        <figcaption class="meta">Overview of cleaned and standardized variables</figcaption>
-      </figure>
-      -->
+      <!-- （如有数据概览图，可在此处补充） -->
     </section>
 
     <!-- ===== Unsupervised Segmentation ===== -->
@@ -53,22 +46,24 @@
       <h2>Unsupervised Segmentation</h2>
       <p>
         Customers were clustered with <strong>K-Means</strong> and visualized via <strong>PCA</strong>. The final solution yields
-        three interpretable segments:
-        <em>Inactive (Dormant)</em>, <em>Mid-value</em>, and <em>High-value Active</em>. Segments differ significantly in age,
+        three interpretable segments: <em>Dormant</em>, <em>Mid-value</em>, and <em>High-value Active</em>, differing in age,
         spending capacity, and activity.
       </p>
 
-      <!-- Optional figures -->
-      <!--
       <figure class="card">
-        <img src="assets/projects/ecomm-pca-clusters.png" alt="PCA visualization of K-Means clusters" style="width:100%;border-radius:12px" />
-        <figcaption class="meta">PCA projection colored by K-Means clusters (k=3)</figcaption>
+        <img src="assets/projects/Elbow Method to Choose Optimal k.jpg" alt="Elbow method to choose the optimal k" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Elbow method for selecting the optimal number of clusters</figcaption>
       </figure>
+
       <figure class="card">
-        <img src="assets/projects/ecomm-cluster-profiles.png" alt="Cluster profile comparison" style="width:100%;border-radius:12px" />
-        <figcaption class="meta">Cluster profiles highlighting age, spend, and activity differences</figcaption>
+        <img src="assets/projects/Cluster plot.jpg" alt="PCA visualization of K-Means clusters" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Cluster plot (PCA projection) showing three segments</figcaption>
       </figure>
-      -->
+
+      <figure class="card">
+        <img src="assets/projects/Variable Contributions to the First Two Principal Components.jpg" alt="Variable contributions to the first two principal components" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Variable contributions to the first two principal components (PCA)</figcaption>
+      </figure>
     </section>
 
     <!-- ===== Regression Models ===== -->
@@ -85,41 +80,43 @@
           Fit is strong (<strong>R² = 0.9631</strong>).</li>
       </ul>
 
-      <!-- Optional figures -->
-      <!--
       <figure class="card">
-        <img src="assets/projects/ecomm-regression-coefs.png" alt="Regression coefficients" style="width:100%;border-radius:12px" />
-        <figcaption class="meta">Coefficient magnitudes and confidence intervals for the two models</figcaption>
+        <img src="assets/projects/Actual vs Predicted (Total Spend).jpg" alt="Actual vs predicted for total spend model" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Actual vs. predicted: Total Spend (Model A)</figcaption>
       </figure>
-      -->
+
+      <figure class="card">
+        <img src="assets/projects/Actual vs Predicted (Average Rating).jpg" alt="Actual vs predicted for average rating model" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Actual vs. predicted: Average Rating (Model B)</figcaption>
+      </figure>
     </section>
 
     <!-- ===== Diagnostics ===== -->
     <section class="project" id="diagnostics">
       <h2>Diagnostics</h2>
       <p>
-        Residual plots and Q-Q plots indicate that both models broadly satisfy linear regression assumptions, supporting
-        explanatory validity and stability.
+        Residual and Q-Q diagnostics indicate both models broadly satisfy linear regression assumptions, supporting explanatory validity and stability.
       </p>
 
-      <!-- Optional figures -->
-      <!--
       <figure class="card">
-        <img src="assets/projects/ecomm-residuals-qq.png" alt="Residual and Q-Q diagnostics" style="width:100%;border-radius:12px" />
-        <figcaption class="meta">Residual vs. fitted and Q-Q diagnostics</figcaption>
+        <img src="assets/projects/Residuals vs Fitted (Total Spend).jpg" alt="Residuals vs fitted for total spend model" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Residuals vs. Fitted — Total Spend (Model A)</figcaption>
       </figure>
-      -->
-    </section>
 
-    <!-- ===== Business Implications ===== -->
-    <section class="project" id="implications">
-      <h2>Business Implications</h2>
-      <ul>
-        <li><strong>Segmentation-led strategy:</strong> Tailored lifecycle approaches for Dormant, Mid-value, and High-value Active segments.</li>
-        <li><strong>Offer design:</strong> Discounts and city-level context are key levers for spend uplift.</li>
-        <li><strong>Experience over volume:</strong> Ratings hinge more on service and psychological drivers than raw spend,
-          implying investment in CX and localized operations.</li>
-      </ul>
+      <figure class="card">
+        <img src="assets/projects/Q-Q Plot (Total Spend Residuals).jpg" alt="Q-Q plot of residuals for total spend model" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Q–Q Plot — Total Spend Residuals (Model A)</figcaption>
+      </figure>
+
+      <figure class="card">
+        <img src="assets/projects/Residuals vs Fitted (Average Rating).jpg" alt="Residuals vs fitted for average rating model" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Residuals vs. Fitted — Average Rating (Model B)</figcaption>
+      </figure>
+
+      <figure class="card">
+        <img src="assets/projects/Q-Q Plot (Average Rating Residuals).jpg" alt="Q-Q plot of residuals for average rating model" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Q–Q Plot — Average Rating Residuals (Model B)</figcaption>
+      </figure>
     </section>
 
     <p class="meta" style="margin-top:12px">
