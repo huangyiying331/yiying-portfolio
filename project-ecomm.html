@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E-commerce Customer Analytics – Yiying Huang</title>
+  <meta name="description" content="Customer segmentation and regression modeling on e-commerce behavior data." />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <a class="brand" href="index.html">YIYING HUANG</a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a class="active" href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ===== Main ===== -->
+  <main class="container">
+    <p class="small"><a class="text-link" href="projects.html">← Back to Projects</a></p>
+    <h1>E-commerce Customer Analytics</h1>
+    <p class="muted small">Customer behavior dataset · n = 350</p>
+
+    <p>
+      This project builds an end-to-end analytics pipeline in R to uncover relationships between customer traits, spending behavior, and satisfaction.
+      The workflow covers robust data preparation, unsupervised segmentation, explanatory modeling, and diagnostic validation to support
+      data-driven segmentation and targeted operations.
+    </p>
+
+    <!-- ===== Data Preparation ===== -->
+    <section class="project" id="data">
+      <h2>Data Preparation</h2>
+      <p>
+        The raw dataset was cleaned, encoded, and standardized to form a tidy analysis table with no missing values. This ensures
+        model stability and comparability across features of different scales.
+      </p>
+
+      <!-- Optional figure(s). Replace with your actual file names under assets/projects/ -->
+      <!--
+      <figure class="card">
+        <img src="assets/projects/ecomm-data-overview.png" alt="Data overview" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Overview of cleaned and standardized variables</figcaption>
+      </figure>
+      -->
+    </section>
+
+    <!-- ===== Unsupervised Segmentation ===== -->
+    <section class="project" id="segmentation">
+      <h2>Unsupervised Segmentation</h2>
+      <p>
+        Customers were clustered with <strong>K-Means</strong> and visualized via <strong>PCA</strong>. The final solution yields
+        three interpretable segments:
+        <em>Inactive (Dormant)</em>, <em>Mid-value</em>, and <em>High-value Active</em>. Segments differ significantly in age,
+        spending capacity, and activity.
+      </p>
+
+      <!-- Optional figures -->
+      <!--
+      <figure class="card">
+        <img src="assets/projects/ecomm-pca-clusters.png" alt="PCA visualization of K-Means clusters" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">PCA projection colored by K-Means clusters (k=3)</figcaption>
+      </figure>
+      <figure class="card">
+        <img src="assets/projects/ecomm-cluster-profiles.png" alt="Cluster profile comparison" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Cluster profiles highlighting age, spend, and activity differences</figcaption>
+      </figure>
+      -->
+    </section>
+
+    <!-- ===== Regression Models ===== -->
+    <section class="project" id="models">
+      <h2>Regression Models</h2>
+      <p>
+        Two linear models were built:
+      </p>
+      <ul>
+        <li><strong>Model A (Total Spend):</strong> Purchase quantity, discount usage, and city are the primary drivers of spend.
+          The model attains a high fit (<strong>R² = 0.9984</strong>).</li>
+        <li><strong>Model B (Average Rating):</strong> Age, discount usage, and location significantly affect ratings, while
+          spend and purchase frequency have smaller effects, suggesting satisfaction relates more to service and psychological factors.
+          Fit is strong (<strong>R² = 0.9631</strong>).</li>
+      </ul>
+
+      <!-- Optional figures -->
+      <!--
+      <figure class="card">
+        <img src="assets/projects/ecomm-regression-coefs.png" alt="Regression coefficients" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Coefficient magnitudes and confidence intervals for the two models</figcaption>
+      </figure>
+      -->
+    </section>
+
+    <!-- ===== Diagnostics ===== -->
+    <section class="project" id="diagnostics">
+      <h2>Diagnostics</h2>
+      <p>
+        Residual plots and Q-Q plots indicate that both models broadly satisfy linear regression assumptions, supporting
+        explanatory validity and stability.
+      </p>
+
+      <!-- Optional figures -->
+      <!--
+      <figure class="card">
+        <img src="assets/projects/ecomm-residuals-qq.png" alt="Residual and Q-Q diagnostics" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Residual vs. fitted and Q-Q diagnostics</figcaption>
+      </figure>
+      -->
+    </section>
+
+    <!-- ===== Business Implications ===== -->
+    <section class="project" id="implications">
+      <h2>Business Implications</h2>
+      <ul>
+        <li><strong>Segmentation-led strategy:</strong> Tailored lifecycle approaches for Dormant, Mid-value, and High-value Active segments.</li>
+        <li><strong>Offer design:</strong> Discounts and city-level context are key levers for spend uplift.</li>
+        <li><strong>Experience over volume:</strong> Ratings hinge more on service and psychological drivers than raw spend,
+          implying investment in CX and localized operations.</li>
+      </ul>
+    </section>
+
+    <p class="meta" style="margin-top:12px">
+      Tech Stack: R · tidyverse · ggplot2 · stats · factoextra
+    </p>
+
+    <p class="small"><a class="text-link" href="projects.html">← Back to Projects</a></p>
+  </main>
+
+  <footer class="site-footer">
+    © <span id="year"></span> Yiying Huang · <a href="https://github.com/huangyiying331">GitHub</a>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
