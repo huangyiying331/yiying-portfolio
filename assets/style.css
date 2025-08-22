@@ -27,6 +27,14 @@
   /* 标签用的淡灰 */
   --pill-gray:rgba(17,24,39,0.04);
   --pill-gray-strong:rgba(17,24,39,0.08);
+
+  /* ===== Pastel hobby colors ===== */
+  --hobby1:#f4efff; /* violet */
+  --hobby2:#e6f3ff; /* sky */
+  --hobby3:#e9fbf1; /* mint */
+  --hobby4:#fff6e9; /* peach */
+  --hobby5:#ffeaf4; /* pink */
+  --hobby6:#eef0ff; /* indigo */
 }
 
 *{box-sizing:border-box}
@@ -209,7 +217,7 @@ h3{font-size:19px}
 }
 .gallery img:hover{transform:translateY(-1px);filter:brightness(1.02)}
 
-/* 兴趣清单 */
+/* ===== Hobbies (base) ===== */
 .hobbies{
   margin:0; padding:0; list-style:none;
   display:grid;
@@ -219,14 +227,32 @@ h3{font-size:19px}
 }
 .hobbies li{
   display:flex; align-items:center; gap:8px;
-  padding:6px 10px;
+  padding:14px 16px;
   border:1px solid var(--border);
-  border-radius:10px;
+  border-radius:14px;
   background:var(--card);
   box-shadow:var(--shadow);
   transition:background .2s, color .2s, transform .04s ease;
 }
-.hobbies li:hover{ background:var(--brand-weak); color:var(--brand); transform:translateY(-1px); }
+
+/* ===== Hobbies pastel palette (per-item colors) ===== */
+.hobbies li:nth-child(1){ background:var(--hobby1); border-color:rgba(124,58,237,.25); }
+.hobbies li:nth-child(2){ background:var(--hobby2); border-color:rgba(2,132,199,.25); }
+.hobbies li:nth-child(3){ background:var(--hobby3); border-color:rgba(16,185,129,.25); }
+.hobbies li:nth-child(4){ background:var(--hobby4); border-color:rgba(245,158,11,.25); }
+.hobbies li:nth-child(5){ background:var(--hobby5); border-color:rgba(236,72,153,.25); }
+.hobbies li:nth-child(6){ background:var(--hobby6); border-color:rgba(99,102,241,.25); }
+
+/* 覆盖通用 hover：仅保留浮起效果 */
+.hobbies li:hover{ transform:translateY(-1px); }
+
+/* 每项自定义 hover 颜色 */
+.hobbies li:nth-child(1):hover{ background:#ede3ff; color:#5b21b6; }
+.hobbies li:nth-child(2):hover{ background:#d9edff; color:#0ea5e9; }
+.hobbies li:nth-child(3):hover{ background:#defae9; color:#10b981; }
+.hobbies li:nth-child(4):hover{ background:#fff0dc; color:#f59e0b; }
+.hobbies li:nth-child(5):hover{ background:#ffe1ee; color:#ec4899; }
+.hobbies li:nth-child(6):hover{ background:#e3e7ff; color:#6366f1; }
 
 /* =========================
    Footer
