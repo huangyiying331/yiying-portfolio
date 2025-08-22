@@ -37,30 +37,48 @@
         same user/time neighborhood can leak future information into training. The goal is to build an evaluation protocol that
         mimics real-time deployment.
       </p>
-      <!-- Optional figure -->
-      <!--
+
       <figure class="card">
-        <img src="assets/projects/time-data-overview.jpg" alt="Event-time data overview" style="width:100%;border-radius:12px" />
-        <figcaption class="meta">Event-time data and leakage risks</figcaption>
+        <img src="assets/projects/date_y Year 1.png" alt="Label distribution over time (Year 1)" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Year 1 overview of label/time coverage</figcaption>
       </figure>
-      -->
+      <figure class="card">
+        <img src="assets/projects/date_y Year 2.png" alt="Label distribution over time (Year 2)" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Year 2 overview of label/time coverage</figcaption>
+      </figure>
+      <figure class="card">
+        <img src="assets/projects/date_y Year 3.png" alt="Label distribution over time (Year 3)" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Year 3 overview of label/time coverage</figcaption>
+      </figure>
     </section>
 
     <!-- 2) Leakage Audit -->
     <section class="project" id="leakage">
       <h2>Leakage Audit</h2>
-      <ul>
-        <li><strong>Temporal leakage:</strong> features computed with future windows or labels aligned after the event.</li>
-        <li><strong>Group leakage:</strong> the same user/session appearing in both train and test due to random split.</li>
-        <li><strong>Duplicate/near-duplicate leakage:</strong> identical hashes spread across folds.</li>
-      </ul>
-      <!-- Optional figures -->
-      <!--
+      <p>
+        We audit leakage by comparing temporal distributions between train and test, and by checking how class probabilities vary over time.
+        Mismatches or sharp drifts signal potential target leakage or improper splits.
+      </p>
+
       <figure class="card">
-        <img src="assets/projects/time-leak-checks.png" alt="Leakage checks" style="width:100%;border-radius:12px" />
-        <figcaption class="meta">Systematic checks for temporal / group / duplicate leakage</figcaption>
+        <img src="assets/projects/date x distribution train vs test.png" alt="date_x distribution: train vs test" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Feature-time (<code>date_x</code>) distribution — train vs. test</figcaption>
       </figure>
-      -->
+
+      <figure class="card">
+        <img src="assets/projects/date_y distribution (first year) train vs test.png" alt="date_y distribution first year: train vs test" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Label-time (<code>date_y</code>) distribution — train vs. test (first year)</figcaption>
+      </figure>
+
+      <figure class="card">
+        <img src="assets/projects/date_y distribution (last year) train vs test.png" alt="date_y distribution last year: train vs test" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Label-time (<code>date_y</code>) distribution — train vs. test (last year)</figcaption>
+      </figure>
+
+      <figure class="card">
+        <img src="assets/projects/date_x class prob &amp; frequency.png" alt="Class probability and frequency over date_x" style="width:100%;border-radius:12px" />
+        <figcaption class="meta">Class probability & frequency over <code>date_x</code> (checking time-varying target)</figcaption>
+      </figure>
     </section>
 
     <!-- 3) Temporal CV Design -->
@@ -70,13 +88,6 @@
         We replace random K-Fold with a <strong>rolling forward split</strong> and a <strong>purged, embargoed GroupKFold</strong>
         (grouped by user/session). Purging removes samples within an embargo window around fold boundaries to avoid look-ahead bias.
       </p>
-      <!-- Optional figure -->
-      <!--
-      <figure class="card">
-        <img src="assets/projects/temporal-cv-scheme.png" alt="Temporal CV schematic" style="width:100%;border-radius:12px" />
-        <figcaption class="meta">Rolling origin with group-aware purging & embargo</figcaption>
-      </figure>
-      -->
     </section>
 
     <!-- 4) Past-Only Feature Engineering -->
@@ -86,13 +97,6 @@
         Features are rebuilt using only information available up to the event time: lagged aggregates, rolling windows, and count/
         frequency encodings per user or entity. Any post-event fields are dropped or shifted.
       </p>
-      <!-- Optional figure -->
-      <!--
-      <figure class="card">
-        <img src="assets/projects/past-only-features.png" alt="Past-only features" style="width:100%;border-radius:12px" />
-        <figcaption class="meta">Lagged & rolling statistics computed strictly from the past</figcaption>
-      </figure>
-      -->
     </section>
 
     <!-- 5) Benchmarks & Results -->
@@ -102,13 +106,6 @@
         <li><strong>Naive random split:</strong> optimistic metrics due to leakage.</li>
         <li><strong>Temporal CV (purged):</strong> lower but realistic CV; hold-out aligns with CV, indicating reliable generalization.</li>
       </ul>
-      <!-- Optional figure -->
-      <!--
-      <figure class="card">
-        <img src="assets/projects/random-vs-temporal-metrics.png" alt="Random vs temporal split metrics" style="width:100%;border-radius:12px" />
-        <figcaption class="meta">Performance drops to realistic levels under temporal CV</figcaption>
-      </figure>
-      -->
     </section>
 
     <!-- 6) Lessons Learned -->
