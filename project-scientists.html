@@ -29,12 +29,22 @@
       transparent assumptions, and cautious interpretation.
     </p>
 
+    <!-- Pills TOC -->
+    <ul class="tags" aria-label="On-page navigation">
+      <li><a href="#data">Data & Goals</a></li>
+      <li><a href="#features">Derived Features</a></li>
+      <li><a href="#eda">Exploratory Profiles</a></li>
+      <li><a href="#model">Modeling</a></li>
+      <li><a href="#notes">Interpretation</a></li>
+      <li><a href="#artifacts">Artifacts</a></li>
+    </ul>
+
     <!-- 1) Data & Goals -->
     <section class="project" id="data">
       <h2>Data &amp; Goals</h2>
       <ul>
         <li><strong>Inputs:</strong> name, country, field_of_expertise, IQ, birth_year, gender, awards, education, etc.</li>
-        <li><strong>Normalization:</strong> lower-snake column names, alias mapping (e.g., <em>field</em> → <code>field_of_expertise</code>), and de-duplication by <em>name + birth_year + field_of_expertise</em>.</li>
+        <li><strong>Normalization:</strong> lower-snake columns, alias mapping (e.g., <em>field</em> → <code>field_of_expertise</code>), and de-duplication by <em>name + birth_year + field_of_expertise</em>.</li>
         <li><strong>Cleaning:</strong> IQ clipped to [50, 230]; implausible years set to NA; gender normalized to <em>Male/Female/Unknown</em>.</li>
       </ul>
     </section>
@@ -71,12 +81,12 @@
       </div>
 
       <figure class="card">
-        <img src="assets/projects/iq_by_field.png" alt="Boxplots of IQ by field" style="width:100%;border-radius:12px" />
+        <img src="assets/projects/iq_by_field.png" alt="Boxplots of IQ by field (top 8 categories)" style="width:100%;border-radius:12px" />
         <figcaption class="meta">IQ by field (top 8 categories)</figcaption>
       </figure>
 
       <figure class="card">
-        <img src="assets/projects/nobel_rate_by_field.png" alt="Estimated Nobel rate by field" style="width:100%;border-radius:12px" />
+        <img src="assets/projects/nobel_rate_by_field.png" alt="Estimated Nobel rate by field (top 12)" style="width:100%;border-radius:12px" />
         <figcaption class="meta">Estimated Nobel rate by field (top 12)</figcaption>
       </figure>
     </section>
