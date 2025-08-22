@@ -1,17 +1,17 @@
 /* =========================
-   Elegant Purple Theme (Dark)
+   Elegant Purple Theme (Dim — lighter)
    ========================= */
 :root{
-  /* 主色系 */
-  --bg:#1e1b4b;              /* 深紫背景 */
-  --ink:#f5f3ff;             /* 偏白正文 */
-  --muted:#c7d2fe;           /* 次级文字（Indigo 200） */
+  /* 核心配色（整体调浅） */
+  --bg:#2a245e;              /* 背景：由 #1e1b4b 提亮 */
+  --ink:#f5f3ff;             /* 正文 */
+  --muted:#d9d6ff;           /* 次级文字，稍更亮 */
   --brand:#a78bfa;           /* 品牌主紫 */
-  --brand-weak:rgba(167,139,250,0.12);
-  --brand-weak-2:rgba(167,139,250,0.22);
-  --card:#2a245e;            /* 卡片底色（稍亮于背景） */
-  --border:rgba(167,139,250,0.35);
-  --shadow:0 4px 16px rgba(0,0,0,0.25);
+  --brand-weak:rgba(167,139,250,0.14);
+  --brand-weak-2:rgba(167,139,250,0.26);
+  --card:#3a3172;            /* 卡片：比背景更亮一档 */
+  --border:rgba(167,139,250,0.45);
+  --shadow:0 4px 16px rgba(0,0,0,0.2);
   --ring:0 0 0 3px rgba(167,139,250,0.35);
 
   /* 排版系统 */
@@ -24,9 +24,9 @@
   --space-5:28px;
   --space-6:40px;
 
-  /* 标签用的淡白 */
-  --pill-gray:rgba(255,255,255,0.06);
-  --pill-gray-strong:rgba(255,255,255,0.12);
+  /* 标签淡白 */
+  --pill-gray:rgba(255,255,255,0.08);
+  --pill-gray-strong:rgba(255,255,255,0.16);
 }
 
 *{box-sizing:border-box}
@@ -55,7 +55,7 @@ a:hover{text-decoration:underline}
    ========================= */
 .site-header{
   position:sticky;top:0;z-index:10;
-  background:rgba(30,27,75,0.85);            /* 深紫半透明 */
+  background:rgba(42,36,94,0.85);           /* 与背景同步提亮 */
   backdrop-filter:saturate(160%) blur(8px);
   border-bottom:1px solid var(--border);
   display:flex;align-items:center;justify-content:space-between;
@@ -86,10 +86,10 @@ h3{font-size:19px}
 }
 .avatar{
   width:120px;height:120px;border-radius:50%;object-fit:cover;
-  border:4px solid rgba(255,255,255,0.15); /* 柔和白边 */
+  border:4px solid rgba(255,255,255,0.18);
   box-shadow:var(--shadow);
 }
-.lead{color:var(--ink);opacity:.95;font-size:17px}
+.lead{color:var(--ink);opacity:.96;font-size:17px}
 .hero-actions{display:flex;gap:12px;margin-top:12px}
 
 /* 小字与弱化 */
@@ -103,9 +103,9 @@ h3{font-size:19px}
   display:inline-block;background:var(--brand);color:#0b0620;text-decoration:none;
   padding:10px 14px;border-radius:12px;border:1px solid var(--brand);
   transition:transform .02s ease, background-color .2s ease, box-shadow .2s;
-  box-shadow:0 1px 0 rgba(0,0,0,0.2);
+  box-shadow:0 1px 0 rgba(0,0,0,0.18);
 }
-.btn:hover{background:#7c3aed}                   /* 指定 hover 色 */
+.btn:hover{background:#7c3aed}
 .btn:active{transform:translateY(1px)}
 .btn:focus-visible{box-shadow:var(--ring)}
 .btn.outline{background:transparent;color:var(--brand);border-color:var(--brand)}
@@ -119,12 +119,12 @@ h3{font-size:19px}
 .tags li{
   border:1px solid var(--border);
   padding:7px 12px;border-radius:999px;font-weight:500;
-  background:linear-gradient(135deg,var(--brand-weak),rgba(255,255,255,0.04));
+  background:linear-gradient(135deg,var(--brand-weak),rgba(255,255,255,0.06));
   color:var(--ink);transition:background .2s,color .2s,transform .02s;
-  box-shadow:0 1px 0 rgba(255,255,255,0.15) inset;
+  box-shadow:0 1px 0 rgba(255,255,255,0.14) inset;
 }
 .tags li:nth-child(even){
-  background:linear-gradient(135deg,var(--pill-gray),rgba(255,255,255,0.04));
+  background:linear-gradient(135deg,var(--pill-gray),rgba(255,255,255,0.06));
 }
 .tags li:hover{
   background:var(--brand-weak-2);
@@ -143,7 +143,7 @@ h3{font-size:19px}
   box-shadow:var(--shadow);
   transition:transform .04s ease, box-shadow .2s ease;
 }
-.card:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(0,0,0,0.28)}
+.card:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(0,0,0,0.22)}
 .meta{color:var(--muted);font-size:14px;margin-top:6px}
 .text-link{color:var(--brand)}
 .text-link:hover{text-decoration:underline}
@@ -155,41 +155,37 @@ h3{font-size:19px}
 .links{display:flex;gap:8px;margin-top:8px}
 
 /* =========================
-   Forms (暗色适配)
+   Forms
    ========================= */
 .contact-form{display:grid;gap:12px;max-width:520px}
 .contact-form input,.contact-form textarea{
   width:100%;padding:10px;border:1px solid var(--border);
-  border-radius:10px;background:#201a48;color:var(--ink);
+  border-radius:10px;background:#2f2970;color:var(--ink);   /* 比原暗色更亮一点 */
   transition:box-shadow .2s,border-color .2s;
 }
 .contact-form input::placeholder,.contact-form textarea::placeholder{
-  color:rgba(245,243,255,0.6);
+  color:rgba(245,243,255,0.7);
 }
 .contact-form input:focus-visible,.contact-form textarea:focus-visible{
   border-color:var(--brand);box-shadow:var(--ring);
 }
 
 /* =========================
-   About Me：左文字 + 右相册&兴趣
+   About：左文字 + 右相册&兴趣
    ========================= */
 .about{
   display:grid;
-  grid-template-columns: 1.05fr 1.25fr; /* 右侧更宽 */
+  grid-template-columns: 1.05fr 1.25fr;
   gap:28px;
   align-items:start;
   margin-top:var(--space-6);
 }
 .about-text{ max-width:62ch; }
-
-/* About 文本分段间距更大一些 */
 .about-text p{ margin:0 0 var(--space-3); }
 .about-text p + p{ margin-top:var(--space-3); }
 
-/* 右侧容器：相册 + 兴趣清单纵向排列 */
 .about-side{ display:flex; flex-direction:column; gap:16px; min-width:0; }
 
-/* 相册网格 */
 .gallery{
   display:grid;
   grid-template-columns: repeat(3, minmax(180px, 1fr));
@@ -212,9 +208,9 @@ h3{font-size:19px}
   display:block;
   transition:transform .08s ease, filter .2s ease;
 }
-.gallery img:hover{transform:translateY(-1px);filter:brightness(1.02)}
+.gallery img:hover{transform:translateY(-1px);filter:brightness(1.03)}
 
-/* 兴趣清单：两列网格 */
+/* 兴趣清单 */
 .hobbies{
   margin:0; padding:0; list-style:none;
   display:grid;
